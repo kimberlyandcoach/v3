@@ -24,3 +24,6 @@ document.getElementById("nlForm").addEventListener("submit", e => {
   location.href = `mailto:${BOOKING_EMAIL}?subject=${encodeURIComponent("Newsletter signup")}&body=${encodeURIComponent("Please add me: " + em)}`;
   document.getElementById("nlNote").textContent = "Thanks! You're on the list.";
 });
+// close mobile menu when tapping outside it
+document.addEventListener("click", e => { if (links.classList.contains("open") && !e.target.closest(".nav-links,.nav-toggle")) { links.classList.remove("open"); toggle.setAttribute("aria-expanded", false); } });
+links.querySelectorAll("a").forEach(a => a.addEventListener("click", () => toggle.setAttribute("aria-expanded", false)));
